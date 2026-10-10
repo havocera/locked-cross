@@ -1,0 +1,9 @@
+test_study,regime,model,n_eligible_drugs,macro_spearman,ci_low,ci_high,median_spearman,mf_seed_aggregation,label
+GDSCv1,cross_study_overlap,itens_k16,111,0.2329411873530338,0.2061583221854029,0.2606104165669436,0.2390809855181984,deterministic,ITENS
+GDSCv1,cross_study_overlap,lightgbm,111,0.1565916418293584,0.1264452716898045,0.1861122645927502,0.1380933283586103,deterministic,LightGBM
+GDSCv1,cross_study_overlap,ridge_bilinear,111,0.12962134882134,0.0972379522602254,0.1614557191906304,0.1276546632779866,deterministic,Ridge
+GDSCv1,cross_study_overlap,selected_inductive_mf,111,0.2398576953218275,0.2121762439185057,0.2678268128540293,0.2350252729711123,mean of per-seed per-drug Spearman,MF (expanded)
+NCI60,cross_study_overlap,itens_k16,196,0.1830676391769714,0.1552585226822424,0.2120860712627722,0.1870501391604258,deterministic,ITENS
+NCI60,cross_study_overlap,lightgbm,196,0.0227996312881607,0.0006988206191718,0.0455035481030942,0.0198175335724966,deterministic,LightGBM
+NCI60,cross_study_overlap,ridge_bilinear,196,0.2193121690562024,0.1872238121508874,0.2521342931742949,0.2273567972434499,deterministic,Ridge
+NCI60,cross_study_overlap,selected_inductive_mf,196,0.1587661539161501,0.1318286561875903,0.1858093375597722,0.1594437610036021,mean of per-seed per-drug Spearman,MF (expanded)

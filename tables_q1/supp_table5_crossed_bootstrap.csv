@@ -1,0 +1,5 @@
+test_study,comparison,n_paired_drugs,n_cells_in_sampling_frame,observed_effect,ci_low,ci_high,valid_resamples,requested_resamples,seed,interval,seed_aggregation
+GDSCv1,C1_internal_minus_external_MF,111,574,0.5311233040993175,0.4950373862422316,0.5670612204893376,9999,9999,20261004,crossed cell-and-drug percentile bootstrap,mean row prediction across ten seeds
+GDSCv1,C2_ITENS_minus_external_MF,111,574,-0.0072327189391417,-0.0247196942169764,0.0098333734309391,9999,9999,20261004,crossed cell-and-drug percentile bootstrap,mean row prediction across ten seeds
+NCI60,C1_internal_minus_external_MF,196,61,0.5757189156799741,0.4464465280822048,0.6998342054807201,9999,9999,20261004,crossed cell-and-drug percentile bootstrap,mean row prediction across ten seeds
+NCI60,C2_ITENS_minus_external_MF,196,61,0.0219661110699193,-0.0325707729404016,0.0771582452670305,9999,9999,20261004,crossed cell-and-drug percentile bootstrap,mean row prediction across ten seeds

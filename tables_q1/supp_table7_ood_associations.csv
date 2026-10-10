@@ -1,0 +1,11 @@
+test_study,population,distance,outcome,n_drugs,spearman
+GDSCv1,target_only_drugs,nearest_source_distance,spearman,179,-0.1050572259535915
+GDSCv1,target_only_drugs,nearest_source_distance,mae,179,-0.0076810411566547
+GDSCv1,target_only_drugs,nearest_source_distance,rmse,179,0.0248571966605988
+GDSCv1,target_only_drugs,nearest_source_distance,mean_abs_prediction,179,0.0875337392505178
+GDSCv1,target_only_drugs,nearest_source_distance,fraction_outside_auc_range,179,0.4121134453418483
+NCI60,target_only_drugs,nearest_source_distance,spearman,54700,-0.0460656606816592
+NCI60,target_only_drugs,nearest_source_distance,mae,54701,0.092005738744961
+NCI60,target_only_drugs,nearest_source_distance,rmse,54701,0.1083446821408358
+NCI60,target_only_drugs,nearest_source_distance,mean_abs_prediction,54701,0.1061923584059733
+NCI60,target_only_drugs,nearest_source_distance,fraction_outside_auc_range,54701,0.4085155228078411

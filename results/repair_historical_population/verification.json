@@ -1,0 +1,76 @@
+{
+  "status": "passed",
+  "full_seed_set": [
+    104729,
+    130363,
+    155921,
+    181081,
+    205759,
+    231481,
+    257053,
+    282433,
+    308113,
+    333667
+  ],
+  "unique_per_drug_keys": [
+    "seed",
+    "test_study",
+    "regime",
+    "domain",
+    "drug_id"
+  ],
+  "input_population_equality": true,
+  "oof_partition_and_score_recomputation": true,
+  "current_input_hashes_match": true,
+  "independent_bca_matches": true,
+  "expected_drug_counts": [
+    {
+      "test_study": "GDSCv1",
+      "domain": "overlap",
+      "regime": "external",
+      "expected_n_drugs": 111
+    },
+    {
+      "test_study": "GDSCv1",
+      "domain": "overlap",
+      "regime": "internal",
+      "expected_n_drugs": 111
+    },
+    {
+      "test_study": "GDSCv1",
+      "domain": "exact_pair",
+      "regime": "external",
+      "expected_n_drugs": 111
+    },
+    {
+      "test_study": "GDSCv1",
+      "domain": "exact_pair",
+      "regime": "internal",
+      "expected_n_drugs": 111
+    },
+    {
+      "test_study": "NCI60",
+      "domain": "overlap",
+      "regime": "external",
+      "expected_n_drugs": 196
+    },
+    {
+      "test_study": "NCI60",
+      "domain": "overlap",
+      "regime": "internal",
+      "expected_n_drugs": 196
+    },
+    {
+      "test_study": "NCI60",
+      "domain": "exact_pair",
+      "regime": "external",
+      "expected_n_drugs": 196
+    },
+    {
+      "test_study": "NCI60",
+      "domain": "exact_pair",
+      "regime": "internal",
+      "expected_n_drugs": 196
+    }
+  ]
+}

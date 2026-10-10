@@ -1,0 +1,7 @@
+model_family,config_id,selection_score,model
+histgb,histgb_lr0.1_leaves31_l210,0.3146459644886954,Tuned HistGB
+inductive_mf,mf_rank64_l21,0.3340022965691081,Locked MF
+itens,itens_kc32_kd32_tc0.2_td0.2_ess0_theta0.25_0.5_0.25,0.3501778193694853,Tuned ITENS
+lightgbm,lightgbm_leaves31_min50_l11_l210,0.3243312525436588,Tuned LightGBM
+ridge,ridge_alpha1,0.2704933393385667,Tuned Ridge
+two_tower,h64_z32_d0.1_wd0.0001,0.2842873410249938,Bounded two-tower

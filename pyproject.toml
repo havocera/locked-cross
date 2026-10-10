@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "crossdb-drug-response"
+version = "0.1.0"
+description = "Leakage-aware cross-database cancer drug-response benchmark"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy>=1.24",
+  "pandas>=2.0",
+  "scipy>=1.10",
+  "scikit-learn==1.9.1",
+  "lightgbm==4.6.0",
+]
+
+[project.optional-dependencies]
+scaffold = ["rdkit>=2024.3"]
+deep = ["torch>=2.14"]
+publication = [
+  "matplotlib>=3.8",
+  "openpyxl>=3.1",
+  "python-docx>=1.1",
+  "pymupdf>=1.24",
+  "pillow>=10",
+  "docx2pdf>=0.1.8; platform_system == 'Windows'",
+  "pywin32>=306; platform_system == 'Windows'",
+]
+web = ["streamlit>=1.65.0"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

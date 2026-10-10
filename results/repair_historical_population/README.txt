@@ -1,0 +1,1 @@
+Selected verification outputs from the historical-source reconstruction. These aggregate results are provided without source or response matrices. Full execution requires obtaining the permitted upstream data and reproducing the protocol described in docs/confirmatory_protocol_v1.md.

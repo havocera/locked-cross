@@ -1,0 +1,5 @@
+test_study,variant,value
+GDSCv1,raw,0.149431850042785
+GDSCv1,theoretical_clip,0.1483865488944788
+NCI60,raw,33368029824.8316
+NCI60,theoretical_clip,0.1305090953488941

@@ -1,0 +1,12 @@
+| family | test_study | regime | comparison | n_paired_drugs | effect | ci_low | ci_high | p_raw | p_adjusted | adjustment | family_size |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| candidate_vs_seed_averaged_locked_mf_on_GDSCv1_overlap | GDSCv1 | cross_study_overlap | additive_matched_minus_selected_inductive_mf | 111 | -0.1237286084613654 | -0.1567452509290394 | -0.0966625824162902 | 0.0002 | 0.0016 | Holm | 8 |
+| candidate_vs_seed_averaged_locked_mf_on_GDSCv1_overlap | GDSCv1 | cross_study_overlap | cell_knn_minus_selected_inductive_mf | 111 | -0.0178903999726517 | -0.0309935208664444 | -0.0056592258258362 | 0.0072 | 0.0216 | Holm | 8 |
+| candidate_vs_seed_averaged_locked_mf_on_GDSCv1_overlap | GDSCv1 | cross_study_overlap | drug_knn_minus_selected_inductive_mf | 111 | -0.018493725799034 | -0.0336731769041865 | -0.0076004908667169 | 0.0044 | 0.0176 | Holm | 8 |
+| candidate_vs_seed_averaged_locked_mf_on_GDSCv1_overlap | GDSCv1 | cross_study_overlap | histgb_minus_selected_inductive_mf | 111 | -0.0940646228722146 | -0.1223889877389473 | -0.0702685105253459 | 0.0002 | 0.0016 | Holm | 8 |
+| candidate_vs_seed_averaged_locked_mf_on_GDSCv1_overlap | GDSCv1 | cross_study_overlap | itens_k16_minus_selected_inductive_mf | 111 | -0.0069165079687935 | -0.0182960884862349 | 0.0030067283432562 | 0.2104 | 0.2104 | Holm | 8 |
+| candidate_vs_seed_averaged_locked_mf_on_GDSCv1_overlap | GDSCv1 | cross_study_overlap | lightgbm_minus_selected_inductive_mf | 111 | -0.083266053492469 | -0.108135979689267 | -0.0617449915330783 | 0.0002 | 0.0016 | Holm | 8 |
+| candidate_vs_seed_averaged_locked_mf_on_GDSCv1_overlap | GDSCv1 | cross_study_overlap | product_knn_minus_selected_inductive_mf | 111 | -0.0164546197422285 | -0.0292571312113553 | -0.0049726439501988 | 0.0078 | 0.0216 | Holm | 8 |
+| candidate_vs_seed_averaged_locked_mf_on_GDSCv1_overlap | GDSCv1 | cross_study_overlap | ridge_bilinear_minus_selected_inductive_mf | 111 | -0.1102363465004874 | -0.1426863323426604 | -0.0831112283380407 | 0.0002 | 0.0016 | Holm | 8 |
+| ITENS_vs_seed_averaged_locked_MF_across_confirmation_screens | GDSCv1 | cross_study_overlap | itens_k16_minus_selected_inductive_mf | 111 | -0.0069165079687935 | -0.0182960884862349 | 0.0030067283432562 | 0.2104 | 0.2104 | Holm | 2 |
+| ITENS_vs_seed_averaged_locked_MF_across_confirmation_screens | NCI60 | cross_study_overlap | itens_k16_minus_selected_inductive_mf | 196 | 0.0243014852608212 | 0.0024041556146474 | 0.0449330796221732 | 0.0268 | 0.0536 | Holm | 2 |

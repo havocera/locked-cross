@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the accompanying manuscript."
+title: "LOCKED-CROSS: a coverage-aware framework for validating cancer drug-response models across screening platforms"
+type: software
+license: MIT
+version: 1.0.0
+authors:
+  - family-names: Wang
+    given-names: Zhenyu
+    affiliation: Xinyang Normal University

@@ -1,0 +1,13 @@
+test_study,regime,model,metric,value,n_pairs,n_cells,n_drugs,n_eligible_drugs,label
+GDSCv1,cross_study,ridge_bilinear,rmse,0.1637478001587891,157574.0,631.0,290.0,290.0,Ridge
+GDSCv1,cross_study,histgb,rmse,0.1505404780111632,157574.0,631.0,290.0,290.0,HistGB
+GDSCv1,cross_study,lightgbm,rmse,0.1493483035160638,157574.0,631.0,290.0,290.0,LightGBM
+GDSCv1,cross_study,product_knn,rmse,0.1532020655305501,157574.0,631.0,290.0,290.0,Product kNN
+GDSCv1,cross_study,itens_k16,rmse,0.1572251302106595,157574.0,631.0,290.0,290.0,ITENS
+NCI60,cross_study,ridge_bilinear,rmse,61909530046.03306,2167361.0,63.0,54897.0,54896.0,Ridge
+NCI60,cross_study,histgb,rmse,0.1222075108878032,2167361.0,63.0,54897.0,54896.0,HistGB
+NCI60,cross_study,lightgbm,rmse,0.1210340971403762,2167361.0,63.0,54897.0,54896.0,LightGBM
+NCI60,cross_study,product_knn,rmse,0.1133950544244467,2167361.0,63.0,54897.0,54896.0,Product kNN
+NCI60,cross_study,itens_k16,rmse,0.1148692948916495,2167361.0,63.0,54897.0,54896.0,ITENS
+GDSCv1,cross_study,selected_inductive_mf,rmse,0.1494419678881233,,,,,Locked MF
+NCI60,cross_study,selected_inductive_mf,rmse,33371514413.545204,,,,,Locked MF

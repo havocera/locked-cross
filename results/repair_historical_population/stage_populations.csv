@@ -1,0 +1,16 @@
+stage,study,n_pairs,n_cells,n_drugs
+historical_raw_source,CTRPv2,301904,843,451
+historical_feature_complete_source,CTRPv2,293194,819,451
+current_expanded_feature_complete_source,CTRPv2,300507,822,459
+target_raw,GDSCv1,243190,978,290
+target_feature_complete,GDSCv1,157574,631,290
+external_overlap,GDSCv1,54202,574,111
+internal_overlap,GDSCv1,54920,574,111
+external_exact_pair,GDSCv1,46820,573,111
+internal_exact_pair,GDSCv1,46820,573,111
+target_raw,NCI60,2847804,81,54897
+target_feature_complete,NCI60,2167361,63,54897
+external_overlap,NCI60,8465,61,196
+internal_overlap,NCI60,10307,61,196
+external_exact_pair,NCI60,7451,61,196
+internal_exact_pair,NCI60,7451,61,196
