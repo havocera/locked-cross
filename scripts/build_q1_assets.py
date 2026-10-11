@@ -158,7 +158,7 @@ def figure1_data_flow(table1: pd.DataFrame) -> None:
     order = list(frame.Study)
     y = np.arange(len(order))[::-1]
     fig, axes = figure_grid(1, 2, width=WIDE, ratio=0.48)
-    panel_labels(axes)
+    panel_labels(axes, pad=17)
     ax1, ax2 = axes
     stages = ["Input fitted pairs", "Stable-ID pairs", "Feature-complete pairs"]
     stage_colors = ["#BDBDBD", PALETTE["cyan"], PALETTE["blue"]]
@@ -171,7 +171,10 @@ def figure1_data_flow(table1: pd.DataFrame) -> None:
     ax1.set_yticks(y, order)
     ax1.set_xlabel("Response pairs (log scale)")
     ax1.set_ylabel("Screen")
-    ax1.legend(loc="lower right", fontsize=6)
+    ax1.legend(
+        loc="lower center", bbox_to_anchor=(0.5, 1.02), ncol=1,
+        fontsize=5.6, frameon=True, borderpad=0.25, labelspacing=0.2,
+    )
     ax1.grid(axis="x")
     ax1.grid(axis="y", visible=False)
 
@@ -182,7 +185,10 @@ def figure1_data_flow(table1: pd.DataFrame) -> None:
     ax2.set_yticks(y, order)
     ax2.set_xlabel("Feature-complete entities (log scale)")
     ax2.set_ylabel("Screen")
-    ax2.legend(loc="lower right", fontsize=6)
+    ax2.legend(
+        loc="lower center", bbox_to_anchor=(0.5, 1.02), ncol=2,
+        fontsize=5.8, frameon=True, borderpad=0.25, columnspacing=0.6,
+    )
     ax2.grid(axis="x")
     ax2.grid(axis="y", visible=False)
     source = frame.copy()
@@ -259,10 +265,6 @@ def figure3_directional_transfer() -> None:
         ax.set_yticks(range(4), studies)
         ax.set_xlabel("Target screen")
         ax.set_ylabel("Source screen")
-        ax.text(
-            0.03, 0.97, panel_name, transform=ax.transAxes, va="top", ha="left",
-            fontsize=7, fontweight="bold", backgroundcolor="white",
-        )
         for i in range(4):
             for j in range(4):
                 if np.isfinite(values[i, j]):
@@ -348,30 +350,53 @@ def figure5_coverage_failure() -> None:
     full["coverage"] = full.apply(lambda row: row.n_eligible_drugs / totals[row.test_study], axis=1)
     full["label"] = full.model.map(MODEL_LABEL)
     selected = ["ridge_bilinear", "histgb", "lightgbm", "selected_inductive_mf", "product_knn", "itens_k16", "cell_knn"]
-    fig, axes = figure_grid(1, 2, width=WIDE, ratio=0.48)
+    fig, axes = figure_grid(1, 2, width=WIDE, ratio=0.58)
     panel_labels(axes)
     ax1, ax2 = axes
     marker = {"GDSCv1": "o", "NCI60": "s"}
-    annotation_offset = {
-        "Ridge": (-30, 5), "Locked MF": (-42, -10), "ITENS": (-25, 5), "Cell kNN": (4, 4),
-    }
+    study_color = {"GDSCv1": PALETTE["blue"], "NCI60": PALETTE["orange"]}
+    selected_rows = full.loc[full.model.isin(selected)]
+    # Connect paired estimates for the same model; this makes the screen shift
+    # visible without assigning a different, unexplained color to every model.
+    for model in selected:
+        pair = selected_rows.loc[selected_rows.model == model].set_index("test_study")
+        if {"GDSCv1", "NCI60"}.issubset(pair.index):
+            ax1.plot(
+                [pair.loc["GDSCv1", "coverage"], pair.loc["NCI60", "coverage"]],
+                [pair.loc["GDSCv1", "macro_spearman"], pair.loc["NCI60", "macro_spearman"]],
+                color="#C9C9C9", linewidth=0.65, zorder=0,
+            )
     for study in ("GDSCv1", "NCI60"):
-        subset = full.loc[(full.test_study == study) & full.model.isin(selected)]
-        for row in subset.itertuples(index=False):
-            ax1.scatter(row.coverage, row.macro_spearman, marker=marker[study], color=COLORS[row.label], s=28, edgecolor="black", linewidth=0.3)
-            if study == "NCI60" and row.model in {"selected_inductive_mf", "ridge_bilinear", "itens_k16", "cell_knn"}:
-                ax1.annotate(
-                    row.label, (row.coverage, row.macro_spearman),
-                    xytext=annotation_offset[row.label], textcoords="offset points",
-                    fontsize=5.5, backgroundcolor="white",
-                )
+        subset = selected_rows.loc[selected_rows.test_study == study]
+        ax1.scatter(
+            subset.coverage, subset.macro_spearman, marker=marker[study],
+            color=study_color[study], s=28, edgecolor="black", linewidth=0.35,
+            zorder=3, label=study,
+        )
+    # Label the low-coverage Cell kNN and high-RMSE Ridge points without
+    # crowding the cluster of other models at full coverage.
+    annotation_xy = {
+        "ridge_bilinear": (0.66, 0.19),
+        "cell_knn": (0.009, 0.225),
+    }
+    for row in selected_rows.loc[
+        (selected_rows.test_study == "NCI60")
+        & selected_rows.model.isin(annotation_xy)
+    ].itertuples(index=False):
+        ax1.annotate(
+            row.label, (row.coverage, row.macro_spearman),
+            xytext=annotation_xy[row.model], textcoords="data", xycoords="data",
+            ha="center", va="center", fontsize=5.8, color="#333333",
+            bbox={"facecolor": "white", "edgecolor": "none", "alpha": 0.92, "pad": 0.45},
+            arrowprops={"arrowstyle": "-", "color": "#777777", "lw": 0.45, "shrinkA": 1, "shrinkB": 2},
+            zorder=4,
+        )
     ax1.set_xscale("log")
     ax1.set_xlabel("Eligible-drug coverage fraction (log scale)")
     ax1.set_ylabel("Full-domain macro Spearman")
     ax1.grid(True)
-    ax1.scatter([], [], marker="o", color="white", edgecolor="black", label="GDSCv1")
-    ax1.scatter([], [], marker="s", color="white", edgecolor="black", label="NCI60")
-    ax1.legend(loc="upper left", fontsize=6)
+    ax1.set_ylim(-0.05, 0.25)
+    ax1.legend(loc="lower left", fontsize=5.8, title="Screen", title_fontsize=5.8)
 
     rmse = metrics.loc[
         (metrics.regime == "cross_study") & (metrics.metric == "rmse")
